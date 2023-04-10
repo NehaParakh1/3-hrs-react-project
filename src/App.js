@@ -17,11 +17,23 @@ function App() {
     setCartVisibility: setIsModalOpen,
     setProductList : setProductList
   }
-  const formSubmitHandler = (value) => {
+  async function formSubmitHandler (value)  {
     setProductList((prevList)=>{
       return [value , ...prevList]
+
     })
-  } 
+      const response = await fetch('https://hrs-react-project-default-rtdb.asia-southeast1.firebasedatabase.app/value.json', {
+        method: 'POST',
+        body: JSON.stringify(value),
+        headers: {
+            "Content-Type": "application.json",
+          },
+    })
+    const data = await response.json();
+    console.log(data);
+    }
+
+  
   
   const ShowProducts = productList.map((product)=>{
    return  <ProductItem key = {product.id} item ={product} ></ProductItem>

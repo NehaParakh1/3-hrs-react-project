@@ -16,6 +16,7 @@ function updateCartAndOrders (orderList , quantityType , props , callback){
                        break ;
                     } 
             }  
+
         }
 
 const ProductItem = (props)=>{
@@ -24,7 +25,7 @@ const ProductItem = (props)=>{
 
     const buyOneClicked = ()=>{      
           updateCartAndOrders(orderList , 1 , props , ctx.setOrderList) ;  
-          console.log(orderList);    
+          console.log(orderList);   
     }
     const buyTwoClicked = ()=>{
           updateCartAndOrders(orderList , 2, props , ctx.setOrderList) ; 
